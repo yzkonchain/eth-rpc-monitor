@@ -1,6 +1,9 @@
 name: run_monitor
 on:
     workflow_dispatch:
+    repository_dispatch:
+        types:
+            - remote
 
 jobs:
     build:
