@@ -2,8 +2,6 @@ name: run_monitor
 on:
     workflow_dispatch:
     repository_dispatch:
-        types:
-            - remote
 
 jobs:
     build:
@@ -23,4 +21,4 @@ jobs:
               env:
                   URL: ${{ secrets.URL }}
                   BEARER: ${{ secrets.BEARER }}
-                  TOUSER: ${{ github.event.inputs.touser }}
+                  TOUSER: ${{ github.event.client_payload.touser }}
