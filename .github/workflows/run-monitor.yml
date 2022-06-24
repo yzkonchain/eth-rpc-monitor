@@ -23,3 +23,4 @@ jobs:
               env:
                   URL: ${{ secrets.URL }}
                   BEARER: ${{ secrets.BEARER }}
+                  TOUSER: ${{ github.event.inputs.touser }}
