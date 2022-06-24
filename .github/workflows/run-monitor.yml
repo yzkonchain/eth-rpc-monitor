@@ -1,0 +1,22 @@
+name: run_monitor
+on:
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  repository: Hecate2/eth_rpc_monitor
+            - uses: actions/setup-python@v4
+              with:
+                  python-version: 3.8
+                  cache: 'pip'
+            - run: pip install -r requirements.txt
+            - name: execute py script
+              run: |
+                  python monitor.py
+              env:
+                  URL: ${{ secrets.URL }}
+                  BEARER: ${{ secrets.BEARER }}
